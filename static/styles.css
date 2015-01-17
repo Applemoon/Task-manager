@@ -1,0 +1,24 @@
+body {
+    padding-top: 40px;
+}
+
+.done-task {
+    color: #979797;
+    text-decoration: line-through;
+}
+
+.task-date {
+    color: #979797;
+}
+
+.task-date.overdue-task-date {
+    color: red;
+}
+
+.done-task .task-date.overdue-task-date {
+    color: #979797;
+}
+
+#new-task {
+    padding-bottom: 30px;
+}

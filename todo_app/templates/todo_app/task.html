@@ -1,0 +1,22 @@
+{% block task %}
+<p>
+    <button type="button" class="btn btn-default btn-check-done" data-taskid="{{ task.id }}">
+        <span class="glyphicon glyphicon-ok"></span>
+    </button>
+
+    <span id="task-{{ task.id }}">
+        <span class = "task-text {% if task.is_done %}done-task{% endif %}">
+            {{ task.task_text }}
+            {% if task.due_date %}
+                <span class="task-date {% if task.overdue %}overdue-task-date{% endif %}">
+                    (до {{ task.due_date }})
+                </span>
+            {% endif %}
+        </span>
+    </span>
+
+    <button type="button" class="btn btn-default btn-remove">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+</p>
+{% endblock %}

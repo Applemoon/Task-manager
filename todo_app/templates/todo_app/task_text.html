@@ -1,0 +1,10 @@
+{% block task_text %}
+<span class = "task-text {% if task.is_done %}done-task{% endif %}">
+    {{ task.task_text }}
+    {% if task.due_date %}
+        <span class="task-date {% if task.overdue %}overdue-task-date{% endif %}">
+            (до {{ task.due_date }})
+        </span>
+    {% endif %}
+</span>
+{% endblock %}
