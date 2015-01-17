@@ -7,15 +7,15 @@ body {
     text-decoration: line-through;
 }
 
-.task-date {
+.task-container__task-text__task-date {
     color: #979797;
 }
 
-.task-date.overdue-task-date {
+.task-container__task-text__task-date.overdue-task-date {
     color: red;
 }
 
-.done-task .task-date.overdue-task-date {
+.done-task .task-container__task-text__task-date.overdue-task-date {
     color: #979797;
 }
 
