@@ -1,11 +1,13 @@
 <p id="task-{{ task.id }}">
-    <button type="button" class="btn btn-default task-container__btn-check-done" data-task-id="{{ task.id }}">
+    <button type="button" class="btn {% if task.is_done %} btn-success {% else %} btn-default {% endif %} check-btn"
+            data-task-id="{{ task.id }}" onclick="check_task_done(this)">
         <span class="glyphicon glyphicon-ok"></span>
     </button>
 
     {{ task.get_task_text_html }}
 
-    <button type="button" class="btn btn-default task-container__btn-remove" data-task-id="{{ task.id }}">
-        <span class="glyphicon glyphicon-remove"></span>
+    <button type="button" class="btn btn-default remove-btn" data-task-id="{{ task.id }}" onclick="remove_task(this)"
+            onmouseover="mouse_over_remove_btn(this)" onmouseout="mouse_out_remove_btn(this)">
+        <span class="glyphicon glyphicon-trash"></span>
     </button>
 </p>

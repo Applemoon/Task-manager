@@ -19,6 +19,18 @@ body {
     color: #979797;
 }
 
-#new-task {
-    padding-bottom: 30px;
+#new-task-input {
+    margin-bottom: 10px;
+}
+
+#datetimepicker1 {
+    margin-bottom: 10px;
+}
+
+.check-btn {
+    margin-bottom: 5px;
+}
+
+.remove-btn {
+    margin-left: 8px;
 }
