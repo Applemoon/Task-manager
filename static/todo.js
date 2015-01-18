@@ -4,13 +4,25 @@ $(document).ready(function () {
 
 function add_task() {
     var text_input = $('#new-task-input');
+    if (text_input.val() == '') {
+        text_input.focus();
+        return false
+    }
+
     var date_input = $('#datetimepicker1');
 
     $.get('/add_new_task/', {task_text: text_input.val(), task_date: date_input.val()}, function (data) {
         $('#task-container').prepend(data);
         $('#label-empty').hide();
+
+        $.bootstrapGrowl("Добавлено задание '" + text_input.val() + "'", {
+            type: 'success',
+            align: 'right',
+            offset: {from: 'bottom', amount: 20},
+            width: 'auto'
+        });
+
         text_input.val('');
-        text_input.focus();
         date_input.val('');
     });
     return false
@@ -35,6 +47,13 @@ function remove_task(button) {
         } else {
             label.hide()
         }
+
+        $.bootstrapGrowl("Задание удалено", {
+            type: 'danger',
+            align: 'right',
+            offset: {from: 'bottom', amount: 20},
+            width: 'auto'
+        });
     })
 }
 
