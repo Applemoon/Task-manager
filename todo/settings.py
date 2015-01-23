@@ -18,7 +18,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo_app',
-    'dajaxice',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -37,11 +36,11 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'todo_base',
-        'USER': 'todo_user',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'NAME': os.environ['OPENSHIFT_APP_NAME'],
+        'USER': os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
+        'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
+        'HOST': os.environ['OPENSHIFT_MYSQL_DB_HOST'],
+        'PORT': os.environ['OPENSHIFT_MYSQL_DB_PORT'],
     }
 }
 
@@ -54,6 +53,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
 TEMPLATE_DIRS = (

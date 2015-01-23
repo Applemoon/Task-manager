@@ -1,8 +1,10 @@
 from setuptools import setup
-packages = ['Django>=1.7'],
 
-setup(name='todo',
-	version='1.0',
-	author='Applemoon',
-	install_requires=packages
-	)
+setup(name='taskmanager',
+      version='1.0',
+      description='OpenShift App',
+      author='Applemoon',
+      author_email='sanyauvarov@mail.ru',
+      url='http://www.python.org/sigs/distutils-sig/',
+      install_requires=['Django>=1.3'],
+     )
